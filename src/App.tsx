@@ -13,14 +13,9 @@ const NewsList = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-
   useEffect(() => {
-    console.log(apiKey);
     axios
-      .get(
-        `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apiKey}`
-      )
+      .get("/api/news")
       .then((response) => {
         setNews(response.data.articles);
         setLoading(false);
@@ -29,7 +24,7 @@ const NewsList = () => {
         console.error("Erro ao buscar as notícias", error);
         setLoading(false);
       });
-  });
+  }, []);
 
   if (loading) {
     return <LoaddingComponent />;
