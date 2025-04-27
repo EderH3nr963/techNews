@@ -16,7 +16,7 @@ const NewsList = () => {
   const apiKey = import.meta.env.VITE_NEWS_API_KEY;
 
   useEffect(() => {
-    console.log("passei port aqui");
+    console.log(apiKey);
     axios
       .get(
         `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apiKey}`
