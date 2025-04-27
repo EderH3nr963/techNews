@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import LoaddingComponent from "./components/loaddingComponent";
 
@@ -29,7 +29,7 @@ const NewsList = () => {
         console.error("Erro ao buscar as notícias", error);
         setLoading(false);
       });
-  }, []);
+  });
 
   if (loading) {
     return <LoaddingComponent />;
